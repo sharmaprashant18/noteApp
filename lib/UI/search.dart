@@ -5,11 +5,7 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Container(
-            // child: Column(
-            //   children: [Text('')],
-            // ),
-            ),
+        body: Container(),
       ),
     );
   }

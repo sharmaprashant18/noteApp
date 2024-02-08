@@ -6,86 +6,111 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
+      // backgroundColor: Colors.black,
+      appBar: AppBar(
         // backgroundColor: Colors.black,
-        appBar: AppBar(
-          // backgroundColor: Colors.black,
-          elevation: 0,
-          toolbarHeight: height * 0.08,
-          title: Center(
-            child: Text(
-              'Index',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                // color: Colors.white
-              ),
+        elevation: 0,
+        toolbarHeight: height * 0.08,
+        title: Center(
+          child: Text(
+            'Index',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              // color: Colors.white
             ),
           ),
-          actions: [
-            IconButton(
-              onPressed: () {
-                Get.to(SearchPage());
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.to(SearchPage());
+            },
+            icon: Icon(Icons.person_2_outlined),
+            iconSize: 30,
+          )
+        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            SizedBox(
+                height: height * .09,
+                child: DrawerHeader(
+                    child: Text(
+                  'Settings',
+                ))),
+            ListTile(
+              title: Text(
+                'Change App Color                              >',
+                style: TextStyle(fontWeight: FontWeight.w800, fontSize: 18),
+              ),
+              onTap: () {
+                Navigator.pop(context);
               },
-              icon: Icon(Icons.person),
-              color: Colors.white,
-              iconSize: 30,
-            )
+            ),
+            ListTile(
+              title: Text(
+                'Change app typography                     >',
+                style: TextStyle(fontWeight: FontWeight.w800, fontSize: 18),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+                title: Text(
+                  'Change app language                         >',
+                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 18),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                }),
+            ListTile(
+                title: Text(
+                  'Import from Google calendar             >',
+                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 18),
+                ),
+                onTap: () {
+                  Navigator.pop(context);
+                }),
           ],
         ),
-        drawer: Drawer(
-          child: ListView(
-            children: [
-              SizedBox(
-                  height: height * .09,
-                  child: DrawerHeader(
-                      child: Text(
-                    'Settings',
-                  ))),
-              ListTile(
-                title: Text(
-                  'Change App Color                              >',
-                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 18),
-                ),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: Text(
-                  'Change app typography                     >',
-                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 18),
-                ),
-                onTap: () {
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                  title: Text(
-                    'Change app language                         >',
-                    style: TextStyle(fontWeight: FontWeight.w800, fontSize: 18),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  }),
-              ListTile(
-                  title: Text(
-                    'Import from Google calendar             >',
-                    style: TextStyle(fontWeight: FontWeight.w800, fontSize: 18),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  }),
-            ],
-          ),
-        ),
+      ),
 
-        body: Container(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [],
-            ),
+      bottomNavigationBar: BottomAppBar(
+        clipBehavior: Clip.antiAlias,
+        shape: CircularNotchedRectangle(),
+        elevation: 0,
+        color: Colors.white,
+        child: BottomNavigationBar(
+            currentIndex: 2,
+            elevation: 0,
+            type: BottomNavigationBarType.fixed,
+            fixedColor: Colors.red,
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                  icon: InkWell(child: Icon(Icons.home)), label: 'Home'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.calendar_month_outlined), label: 'Calender'),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.watch_later_outlined), label: 'Focuse'),
+            ]),
+      ),
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Get.to(SearchPage());
+        },
+        child: Icon(Icons.add),
+      ),
+      body: Container(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [],
           ),
         ),
       ),
