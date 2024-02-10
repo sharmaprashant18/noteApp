@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter/services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:todoapp/UI/homepage.dart';
 
 void main() {
-  runApp(Home());
+  runApp(ProviderScope(child: Home()));
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle());
 }
 
 class Home extends StatelessWidget {
@@ -19,7 +21,18 @@ class Home extends StatelessWidget {
   }
 }
 
+final sample = Provider((ref) => CounterProvider());
 
+class CounterProvider {
+  int number = 0;
+  void increment() {
+    number++;
+  }
+
+  void decrement() {
+    number--;
+  }
+}
 
 
 // COUNTERAPP

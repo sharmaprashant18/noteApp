@@ -84,10 +84,10 @@ class HomePage extends StatelessWidget {
         elevation: 0,
         color: Colors.white,
         child: BottomNavigationBar(
-            currentIndex: 2,
+            currentIndex: 0,
             elevation: 0,
             type: BottomNavigationBarType.fixed,
-            fixedColor: Colors.red,
+            fixedColor: Colors.pink,
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                   icon: InkWell(child: Icon(Icons.home)), label: 'Home'),
