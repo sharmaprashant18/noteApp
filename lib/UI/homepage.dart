@@ -94,7 +94,7 @@ class HomePage extends StatelessWidget {
               BottomNavigationBarItem(
                   icon: Icon(Icons.calendar_month_outlined), label: 'Calender'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.watch_later_outlined), label: 'Focuse'),
+                  icon: Icon(Icons.watch_later_outlined), label: 'Focus'),
             ]),
       ),
 

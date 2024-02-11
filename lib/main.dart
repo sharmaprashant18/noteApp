@@ -194,7 +194,7 @@
 //                 children: [
 //                   TextButton(
 //                       onPressed: () {
-//                         ref.read(SampleCounterApp.notifier).state++;
+//                         ref.read(SampleCounterApp.notifier)state++;
 //                       },
 //                       child: Text('Increase')),
 //                   TextButton(
