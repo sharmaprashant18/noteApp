@@ -1,8 +1,7 @@
+// PROVIDER
 // import 'package:flutter/material.dart';
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:get/get.dart';
-
-// PROVIDER
 // void main() {
 //   runApp(ProviderScope(child: Home()));
 // }
@@ -68,8 +67,16 @@
 // //   }
 // // }
 
-// CHANGENOTIFIER&CHANGENOTIFIERPROVIDER
+//
+//
+//
+//
 
+//
+//
+//
+
+// CHANGENOTIFIER&CHANGENOTIFIERPROVIDER
 // import 'package:flutter/material.dart';
 // import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import 'package:get/get.dart';
@@ -121,21 +128,33 @@
 //     );
 //   }
 // }
-
 // final SampleCounterApp = ChangeNotifierProvider((ref) => CounterApp());
-
 // class CounterApp extends ChangeNotifier {
 //   int number = 0;
 //   void increase() {
 //     number++;
 //     notifyListeners();
 //   }
-
 //   void decrease() {
 //     number--;
 //     notifyListeners();
 //   }
 // }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+//
+//
+//
 
 // StateProvider
 // import 'package:flutter/material.dart';
