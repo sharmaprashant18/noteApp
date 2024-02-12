@@ -216,11 +216,12 @@
 
 // TODOAPP
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:todoapp/UI/homepage.dart';
 
 void main() {
-  runApp(Home());
+  runApp(ProviderScope(child: Home()));
 }
 
 class Home extends StatelessWidget {
