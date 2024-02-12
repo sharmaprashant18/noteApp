@@ -119,8 +119,6 @@
 // }
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todoapp/provider/todoprovider.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
