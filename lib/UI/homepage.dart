@@ -1,7 +1,6 @@
 // import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
 // import 'package:todoapp/UI/search.dart';
-
 // class HomePage extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
@@ -77,7 +76,6 @@
 //           ],
 //         ),
 //       ),
-
 //       bottomNavigationBar: BottomAppBar(
 //         clipBehavior: Clip.antiAlias,
 //         shape: CircularNotchedRectangle(),
@@ -97,9 +95,7 @@
 //                   icon: Icon(Icons.watch_later_outlined), label: 'Focus'),
 //             ]),
 //       ),
-
 //       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-
 //       floatingActionButton: FloatingActionButton(
 //         onPressed: () {
 //           Get.to(SearchPage());

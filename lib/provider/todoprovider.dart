@@ -1,38 +1,9 @@
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:todoapp/todo_model/todomodel1.dart';
-
-// final todoProvider =
-//     StateNotifierProvider<TodoProvider, List>((ref) => TodoProvider([]));
-
-// class TodoProvider extends StateNotifier<List<Todo>> {
-//   TodoProvider(super.state);
-//   add(Todo todos) {
-//     state.add(todos);
-//   }
-
-//   delete(Todo todos) {
-//     state.remove(todos);
-//   }
-// }
-
-// // List<Todo> todo = [Todo(title: '', id: DateTime.now().toString())];
-// STATENOTIFIERPROVIDER
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todoapp/todo_model/todomodel1.dart';
 
-final todoProvider =
-    StateNotifierProvider<TodoProvider, List>((ref) => TodoProvider([]));
-
-class TodoProvider extends StateNotifier<List<Todo>> {
+class TodoProvider extends StateNotifier {
   TodoProvider(super.state);
+  void addTodo(Todo todo) {}
 
-  add(Todo todo) {
-    state.add(todo);
-  }
-
-  delete(Todo todo) {
-    state.remove(todo);
-  }
+  void deleteTodo() {}
 }
-
-List<Todo> todo = [Todo(title: '', id: DateTime.now().toString())];
