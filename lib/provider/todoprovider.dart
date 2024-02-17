@@ -6,12 +6,14 @@ final noteProvider =
 
 class NoteProvider extends StateNotifier<List<Note>> {
   NoteProvider(super.state);
-  void addNote(Note note) {
+  addNote(Note note) {
     state.add(note);
+    state = [...state];
   }
 
-  void deleteNote(Note note) {
+  deleteNote(Note note) {
     state.remove(note);
+    state = [...state];
   }
 }
 

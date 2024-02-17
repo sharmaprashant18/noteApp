@@ -115,19 +115,52 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todoapp/provider/todoprovider.dart';
+import 'package:todoapp/todo_model/todomodel1.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [],
-      )),
+    return SafeArea(
+      child: Scaffold(
+        body: Consumer(builder: (context, ref, child) {
+          final noteData = ref.watch(noteProvider);
+          return Container(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: TextFormField(
+                    onTap: () {},
+                    decoration: InputDecoration(
+                      hintText: 'Add Note',
+                    ),
+                    onFieldSubmitted: (val) {
+                      ref.read(noteProvider.notifier).addNote(
+                          Note(title: val, id: DateTime.now().toString()));
+                    },
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Expanded(
+                    child: ListView.builder(
+                  itemCount: noteData.length,
+                  itemBuilder: (context, index) {
+                    final note = noteData[index];
+                    return ListTile(
+                        leading: Icon(Icons.add), title: Text(note.title));
+                  },
+                ))
+              ],
+            ),
+          );
+        }),
+      ),
     );
   }
 }
-////////
