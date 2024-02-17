@@ -1,5 +1,5 @@
-class Todo {
+class Note {
   String title;
   String id;
-  Todo({required this.title, required this.id});
+  Note({required this.title, required this.id});
 }
