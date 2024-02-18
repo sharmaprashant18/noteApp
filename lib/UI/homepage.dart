@@ -114,53 +114,6 @@
 //   }
 // }
 
-// import 'package:flutter/material.dart';
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-// import 'package:todoapp/provider/todoprovider.dart';
-// import 'package:todoapp/todo_model/todomodel1.dart';
-
-// class HomePage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Consumer(
-//         builder: (context, ref, child) {
-//           final noteDate = ref.watch(noteProvider);
-//           return SafeArea(
-//             child: Container(
-//               child: Column(
-//                 children: [
-//                   Padding(
-//                     padding: const EdgeInsets.only(left: 10),
-//                     child: TextFormField(
-//                       decoration: InputDecoration(hintText: 'Add Note'),
-//                       onFieldSubmitted: (value) {
-//                         ref.read(noteProvider.notifier).add(
-//                             Note(title: value, id: DateTime.now().toString()));
-//                       },
-//                     ),
-//                   ),
-//                   Expanded(
-//                       child: ListView.builder(
-//                     itemCount: noteDate.length,
-//                     itemBuilder: (context, index) {
-//                       final notes = noteDate[index];
-//                       return ListTile(
-//                         title: Text(notes.title),
-//                         leading: Icon(Icons.add),
-//                       );
-//                     },
-//                   ))
-//                 ],
-//               ),
-//             ),
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todoapp/provider/todoprovider.dart';
