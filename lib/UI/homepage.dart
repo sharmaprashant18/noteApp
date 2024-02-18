@@ -114,52 +114,99 @@
 //   }
 // }
 
+// import 'package:flutter/material.dart';
+// import 'package:flutter_riverpod/flutter_riverpod.dart';
+// import 'package:todoapp/provider/todoprovider.dart';
+// import 'package:todoapp/todo_model/todomodel1.dart';
+
+// class HomePage extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Consumer(
+//         builder: (context, ref, child) {
+//           final noteDate = ref.watch(noteProvider);
+//           return SafeArea(
+//             child: Container(
+//               child: Column(
+//                 children: [
+//                   Padding(
+//                     padding: const EdgeInsets.only(left: 10),
+//                     child: TextFormField(
+//                       decoration: InputDecoration(hintText: 'Add Note'),
+//                       onFieldSubmitted: (value) {
+//                         ref.read(noteProvider.notifier).add(
+//                             Note(title: value, id: DateTime.now().toString()));
+//                       },
+//                     ),
+//                   ),
+//                   Expanded(
+//                       child: ListView.builder(
+//                     itemCount: noteDate.length,
+//                     itemBuilder: (context, index) {
+//                       final notes = noteDate[index];
+//                       return ListTile(
+//                         title: Text(notes.title),
+//                         leading: Icon(Icons.add),
+//                       );
+//                     },
+//                   ))
+//                 ],
+//               ),
+//             ),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todoapp/provider/todoprovider.dart';
 import 'package:todoapp/todo_model/todomodel1.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Consumer(builder: (context, ref, child) {
+    return Scaffold(
+      body: Consumer(
+        builder: (context, ref, child) {
           final noteData = ref.watch(noteProvider);
-          return Container(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: TextFormField(
-                    onTap: () {},
-                    decoration: InputDecoration(
-                      hintText: 'Add Note',
-                    ),
-                    onFieldSubmitted: (val) {
-                      ref.read(noteProvider.notifier).addNote(
-                          Note(title: val, id: DateTime.now().toString()));
+          return SafeArea(
+            child: Container(
+              child: Column(
+                children: [
+                  Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                            hintText: 'Add Note',
+                            hintStyle: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            )),
+                        onFieldSubmitted: (value) {
+                          ref.read(noteProvider.notifier).add(Note(
+                              title: value, id: DateTime.now().toString()));
+                        },
+                      )),
+                  Expanded(
+                      child: ListView.builder(
+                    itemCount: noteData.length,
+                    itemBuilder: (context, index) {
+                      final notes = noteData[index];
+                      return ListTile(
+                        title: Text(notes.title),
+                        leading: Icon(Icons.add),
+                      );
                     },
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Expanded(
-                    child: ListView.builder(
-                  itemCount: noteData.length,
-                  itemBuilder: (context, index) {
-                    final note = noteData[index];
-                    return ListTile(
-                        leading: Icon(Icons.add), title: Text(note.title));
-                  },
-                ))
-              ],
+                  ))
+                ],
+              ),
             ),
           );
-        }),
+        },
       ),
     );
   }
