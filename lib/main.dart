@@ -220,9 +220,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:todoapp/UI/homepage.dart';
 
-void main() {
-  runApp(ProviderScope(child: Home()));
-}
+// void main() {
+//   runApp(ProviderScope(child: Home()));
+// }
+void main() => runApp(ProviderScope(child: Home()));
 
 class Home extends StatelessWidget {
   const Home({super.key});
