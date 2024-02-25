@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todoapp/todo_model/todomodel1.dart';
+import 'package:todoapp/note_model/note_model1.dart';
 
 final noteProvider =
     StateNotifierProvider<NoteProvider, List<Note>>((ref) => NoteProvider([]));

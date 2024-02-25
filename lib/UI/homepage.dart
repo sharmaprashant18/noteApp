@@ -116,8 +116,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:todoapp/provider/todoprovider.dart';
-import 'package:todoapp/todo_model/todomodel1.dart';
+import 'package:todoapp/provider/noteprovider.dart';
+import 'package:todoapp/note_model/note_model1.dart';
 
 class HomePage extends StatelessWidget {
   @override
