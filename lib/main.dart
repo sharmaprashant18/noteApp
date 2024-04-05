@@ -22,7 +22,6 @@
 //     return Scaffold(
 //       body: Container(
 //         child: Consumer(builder: (context, ref, child) {
-//           // final number = ref.watch(sampleProvider).number;
 //           final number = ref.watch(sampleProvider).number;
 //           return Column(
 //             mainAxisAlignment: MainAxisAlignment.center,
@@ -214,7 +213,7 @@
 
 // final SampleCounterApp = StateProvider<int>((ref) => 0);
 
-// TODOAPP
+//NOTEAPP
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
