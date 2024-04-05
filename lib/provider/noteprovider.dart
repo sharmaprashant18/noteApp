@@ -6,7 +6,6 @@ final noteProvider =
 
 class NoteProvider extends StateNotifier<List<Note>> {
   NoteProvider(super._state);
-
   void add(Note note) {
     state.add(note);
     state = [...state];
