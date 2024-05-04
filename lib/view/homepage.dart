@@ -116,8 +116,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:todoapp/model/note_model1.dart';
 import 'package:todoapp/provider/noteprovider.dart';
-import 'package:todoapp/note_model/note_model1.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -127,38 +127,36 @@ class HomePage extends StatelessWidget {
         builder: (context, ref, child) {
           final noteData = ref.watch(noteProvider);
           return SafeArea(
-            child: Container(
-              child: Column(
-                children: [
-                  Padding(
-                      padding: EdgeInsets.only(left: 10),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                            hintText: 'Add Note',
-                            hintStyle: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                            )),
-                        onFieldSubmitted: (value) {
-                          ref.read(noteProvider.notifier).add(Note(
-                              title: value, id: DateTime.now().toString()));
-                        },
-                      )),
-                  Expanded(
-                      child: ListView.builder(
-                    itemCount: noteData.length,
-                    itemBuilder: (context, index) {
-                      final notes = noteData[index];
-                      return ListTile(
-                        title: Text(notes.title),
-                        leading: Icon(Icons.add),
-                      );
+              child: Container(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                        hintText: 'Add Some',
+                        hintStyle: TextStyle(fontSize: 20)),
+                    onFieldSubmitted: (value) {
+                      final newNote =
+                          Note(title: value, id: DateTime.now().toString());
+                      ref.read(noteProvider.notifier).add(newNote);
                     },
-                  ))
-                ],
-              ),
+                  ),
+                ),
+                Expanded(
+                    child: ListView.builder(
+                  itemCount: noteData.length,
+                  itemBuilder: (context, index) {
+                    final notes = noteData[index];
+                    return ListTile(
+                      title: Text(notes.title),
+                      leading: Icon(Icons.add),
+                    );
+                  },
+                ))
+              ],
             ),
-          );
+          ));
         },
       ),
     );

@@ -217,7 +217,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
-import 'package:todoapp/UI/homepage.dart';
+import 'package:todoapp/view/homepage.dart';
 
 // void main() {
 //   runApp(ProviderScope(child: Home()));
