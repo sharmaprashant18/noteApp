@@ -196,7 +196,13 @@ class HomePage extends StatelessWidget {
                                         Column(
                                           children: [
                                             TextButton(
-                                                onPressed: () {},
+                                                onPressed: () {
+                                                  Get.back();
+                                                  ref
+                                                      .read(
+                                                          noteProvider.notifier)
+                                                      .delete(notes);
+                                                },
                                                 child: Text('Yes')),
                                             TextButton(
                                                 onPressed: () {

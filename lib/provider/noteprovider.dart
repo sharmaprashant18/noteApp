@@ -12,7 +12,7 @@ class NoteProvider extends StateNotifier<List<Note>> {
 
   void delete(Note note) {
     state.remove(note);
-    state = [...state, note];
+    state = [...state];
   }
 
   void update(Note note) {}
