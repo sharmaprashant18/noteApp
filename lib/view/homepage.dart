@@ -152,6 +152,7 @@ class HomePage extends StatelessWidget {
                                   },
                                   child: Text('Confirm'))
                             ]);
+
                         // confirm: TextButton(
                         //     onPressed: () {
                         //       // Get.to(() => NextPage()); In this way by clicking it can go to another page
@@ -177,9 +178,38 @@ class HomePage extends StatelessWidget {
                       title: Text(notes.title),
                       leading: Icon(Icons.add),
                       subtitle: Text(
-                        // come below the main title in small
-                        notes.id,
-                        style: TextStyle(),
+                          // come below the main title in small
+                          notes.id.substring(0, 11)),
+                      //Substring helps to give the range of the subtitle
+                      trailing: Container(
+                        width: 100,
+                        child: Row(
+                          children: [
+                            IconButton(
+                                onPressed: () {}, icon: Icon(Icons.edit_note)),
+                            IconButton(
+                                onPressed: () {
+                                  Get.defaultDialog(
+                                      title: 'Are you sure?',
+                                      content: Text('You want to delete '),
+                                      actions: [
+                                        Column(
+                                          children: [
+                                            TextButton(
+                                                onPressed: () {},
+                                                child: Text('Yes')),
+                                            TextButton(
+                                                onPressed: () {
+                                                  Get.back();
+                                                },
+                                                child: Text('No'))
+                                          ],
+                                        )
+                                      ]);
+                                },
+                                icon: Icon(Icons.delete)),
+                          ],
+                        ),
                       ),
                     );
                   },
