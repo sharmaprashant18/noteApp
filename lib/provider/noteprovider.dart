@@ -14,6 +14,8 @@ class NoteProvider extends StateNotifier<List<Note>> {
     state.remove(note);
     state = [...state, note];
   }
+
+  void update(Note note) {}
 }
 
 List<Note> note = [Note(title: '', id: DateTime.now().toString())];

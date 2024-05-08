@@ -116,10 +116,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:get/get.dart';
 import 'package:todoapp/model/note_model1.dart';
 import 'package:todoapp/provider/noteprovider.dart';
 
 class HomePage extends StatelessWidget {
+  final textController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -133,16 +135,39 @@ class HomePage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(left: 10),
                   child: TextFormField(
+                    controller:
+                        textController, // textController given below the Stless is called in the controller
                     decoration: InputDecoration(
                         hintText: 'Add Some',
                         hintStyle: TextStyle(fontSize: 20)),
                     onFieldSubmitted: (value) {
-                      final newNote =
-                          Note(title: value, id: DateTime.now().toString());
-                      ref.read(noteProvider.notifier).add(newNote);
+                      if (value.isEmpty) {
+                        Get.defaultDialog(
+                            title: 'Required',
+                            content: Text('Add Something'),
+                            actions: [
+                              TextButton(
+                                  onPressed: () {
+                                    Get.back(); //Helps to go back after clicking the text button
+                                  },
+                                  child: Text('Confirm'))
+                            ]);
+                        // confirm: TextButton(
+                        //     onPressed: () {
+                        //       // Get.to(() => NextPage()); In this way by clicking it can go to another page
+                        //     },
+                        //     child: Text('Confirm')));
+                      } else {
+                        final newNote =
+                            Note(title: value, id: DateTime.now().toString());
+                        ref.read(noteProvider.notifier).add(newNote);
+                        textController
+                            .clear(); //clear the text after clicking done from the search bar and it called from the TextFormfield
+                      }
                     },
                   ),
                 ),
+                SizedBox(height: 10),
                 Expanded(
                     child: ListView.builder(
                   itemCount: noteData.length,
@@ -151,6 +176,11 @@ class HomePage extends StatelessWidget {
                     return ListTile(
                       title: Text(notes.title),
                       leading: Icon(Icons.add),
+                      subtitle: Text(
+                        // come below the main title in small
+                        notes.id,
+                        style: TextStyle(),
+                      ),
                     );
                   },
                 ))
