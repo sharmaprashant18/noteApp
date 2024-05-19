@@ -15,7 +15,10 @@ class NoteProvider extends StateNotifier<List<Note>> {
     state = [...state];
   }
 
-  void update(Note note) {}
+  void update(Note note, int index) {
+    state[index] = note;
+    state = [...state];
+  }
 }
 
 List<Note> note = [Note(title: '', id: DateTime.now().toString())];

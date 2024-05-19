@@ -119,6 +119,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:todoapp/model/note_model1.dart';
 import 'package:todoapp/provider/noteprovider.dart';
+import 'package:todoapp/view/editpage.dart';
 
 class HomePage extends StatelessWidget {
   final textController = TextEditingController();
@@ -138,7 +139,7 @@ class HomePage extends StatelessWidget {
                     controller:
                         textController, // textController given below the Stless is called in the controller
                     decoration: InputDecoration(
-                        hintText: 'Add Some',
+                        hintText: 'Add Note',
                         hintStyle: TextStyle(fontSize: 20)),
                     onFieldSubmitted: (value) {
                       if (value.isEmpty) {
@@ -177,16 +178,22 @@ class HomePage extends StatelessWidget {
                     return ListTile(
                       title: Text(notes.title),
                       leading: Icon(Icons.add),
+
                       subtitle: Text(
                           // come below the main title in small
                           notes.id.substring(0, 11)),
                       //Substring helps to give the range of the subtitle
+
                       trailing: Container(
                         width: 100,
                         child: Row(
                           children: [
                             IconButton(
-                                onPressed: () {}, icon: Icon(Icons.edit_note)),
+                                onPressed: () {
+                                  Get.to(() => EditPage(notes, index),
+                                      transition: Transition.rightToLeft);
+                                },
+                                icon: Icon(Icons.edit_note)),
                             IconButton(
                                 onPressed: () {
                                   Get.defaultDialog(
