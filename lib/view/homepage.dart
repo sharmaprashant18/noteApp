@@ -191,7 +191,8 @@ class HomePage extends StatelessWidget {
                             IconButton(
                                 onPressed: () {
                                   Get.to(() => EditPage(notes, index),
-                                      transition: Transition.rightToLeft);
+                                      transition:
+                                          Transition.leftToRightWithFade);
                                 },
                                 icon: Icon(Icons.edit_note)),
                             IconButton(
