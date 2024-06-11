@@ -21,6 +21,7 @@ class EditPage extends StatelessWidget {
               onFieldSubmitted: (value) {
                 if (value.isEmpty) {
                   Get.defaultDialog(
+                      backgroundColor: Color.fromRGBO(240, 240, 217, 0.984),
                       title: 'Required',
                       content: Text('Add Something'),
                       actions: [
@@ -37,10 +38,10 @@ class EditPage extends StatelessWidget {
                   //     },
                   //     child: Text('Confirm')));
                 } else {
-                  // final newNote = Note(title: value, id: note.id);
-                  // ref.read(noteProvider.notifier).update(newNote);
                   final newNote = Note(title: value, id: note.id);
                   ref.read(noteProvider.notifier).update(newNote, index);
+                  // Navigator.pop(context);
+                  Get.back();
                 }
               },
             ),

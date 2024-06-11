@@ -144,6 +144,8 @@ class HomePage extends StatelessWidget {
                     onFieldSubmitted: (value) {
                       if (value.isEmpty) {
                         Get.defaultDialog(
+                            backgroundColor:
+                                Color.fromRGBO(240, 240, 217, 0.984),
                             title: 'Required',
                             content: Text('Add Something'),
                             actions: [
@@ -198,26 +200,32 @@ class HomePage extends StatelessWidget {
                             IconButton(
                                 onPressed: () {
                                   Get.defaultDialog(
+                                      backgroundColor:
+                                          Color.fromRGBO(240, 240, 217, 0.984),
                                       title: 'Are you sure?',
                                       content: Text('You want to delete '),
                                       actions: [
-                                        Column(
-                                          children: [
-                                            TextButton(
-                                                onPressed: () {
-                                                  Get.back();
-                                                  ref
-                                                      .read(
-                                                          noteProvider.notifier)
-                                                      .delete(notes);
-                                                },
-                                                child: Text('Yes')),
-                                            TextButton(
-                                                onPressed: () {
-                                                  Get.back();
-                                                },
-                                                child: Text('No'))
-                                          ],
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 60),
+                                          child: Row(
+                                            children: [
+                                              TextButton(
+                                                  onPressed: () {
+                                                    Get.back();
+                                                    ref
+                                                        .read(noteProvider
+                                                            .notifier)
+                                                        .delete(notes);
+                                                  },
+                                                  child: Text('Yes')),
+                                              TextButton(
+                                                  onPressed: () {
+                                                    Get.back();
+                                                  },
+                                                  child: Text('No'))
+                                            ],
+                                          ),
                                         )
                                       ]);
                                 },
