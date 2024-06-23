@@ -40,9 +40,12 @@ dependencies:
   riverpod: ^2.5.0
   flutter_native_splash: ^2.4.0
 flutter_native_splash:
-  color: "#42a5f5"
+  color: "#121212"
   image: assets/notesplash.png
-  color_dark: "#121212"
+  color_dark: "#ffffff"
+  android_12:
+    image:  assets/notesplash.png
+  web: false  
 
 dev_dependencies:
   flutter_test:
